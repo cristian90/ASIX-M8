@@ -117,7 +117,11 @@ Error message and password prompt
 
 <p>This <a class='tc-tiddlylink-external' href='http://tiddlywiki.com' target='_blank'>TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/ControlPanel</li>
+
 <li>$:/core</li>
+
+<li>$:/DefaultTiddlers</li>
 
 <li>$:/isEncrypted</li>
 
@@ -153,7 +157,7 @@ Error message and password prompt
 
 <li>1.Solucion_Gestion_De_Usuarios</li>
 
-<li>1º Asix</li>
+<li>1º ASIX</li>
 
 <li>2.Apuntes Procedimientos</li>
 
@@ -209,6 +213,8 @@ Error message and password prompt
 
 <li>Crear Cabezeras</li>
 
+<li>Draft of 'GettingStarted'</li>
+
 <li>Ejercicio_3_Vinos</li>
 
 <li>Ejercicio_Esdeveniments</li>
@@ -223,7 +229,11 @@ Error message and password prompt
 
 <li>Fonamentos Del Maquinario</li>
 
+<li>GettingStarted</li>
+
 <li>Implantación APP Web</li>
+
+<li>Index</li>
 
 <li>Json</li>
 
@@ -271,6 +281,12 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20141014234502672" creator="cristian" modified="20141014234502673" modifier="cristian" title="$:/ControlPanel">
+<pre>&lt;div class=&quot;tc-control-panel&quot;&gt;
+&lt;&lt;tabs &quot;[all[shadows+tiddlers]tag[$:/tags/ControlPanel]!has[draft.of]]&quot; &quot;$:/core/ui/ControlPanel/Info&quot;&gt;&gt;
+&lt;/div&gt;
+</pre>
+</div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core plugin" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.2">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -4802,6 +4818,10 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20141014234412426" creator="cristian" modified="20141014234654292" modifier="cristian" title="$:/DefaultTiddlers">
+<pre>Index
+</pre>
+</div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
@@ -4814,16 +4834,16 @@ Error message and password prompt
 <div modified="20141014225953183" modifier="cristian" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141014210551673" modifier="cristian" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Tools</pre>
+<div modified="20141014234352112" modifier="cristian" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
-<div modified="20141014210618369" modifier="cristian" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div modified="20141014233843139" modifier="cristian" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20141014210502872" creator="c" modified="20141014210504198" modifier="cristia" title="$:/status/UserName">
 <pre>cristian</pre>
 </div>
-<div list="[[2º ASIX]] [[Seguridad Informatica]]" title="$:/StoryList">
+<div list="Index" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -4846,8 +4866,8 @@ Error message and password prompt
 <div created="20141014210655796" creator="cristian" modified="20141014233510275" modifier="cristian" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20141014210609710" creator="cristian" modified="20141014232420576" modifier="cristian" title="$:/temp/search">
-<pre>2º</pre>
+<div created="20141014210609710" creator="cristian" modified="20141014234752279" modifier="cristian" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="A clean theme that emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.2">
 <pre>{
@@ -5062,7 +5082,7 @@ SET PASSWORD =PASSWORD ('1234');
 UPDATE colum_priv SET Colum_name='ADRECA' WHERE User='INVITADO';
 `</pre>
 </div>
-<div created="20141014210619765" creator="cristian" modified="20141014211209945" modifier="cristian" sistemas-operativos="" tags="1ºASIX" title="1º Asix">
+<div created="20141014210619765" creator="cristian" modified="20141014234724877" modifier="cristian" sistemas-operativos="" tags="1ºASIX" title="1º ASIX">
 <pre>[[SIstemas Operativos]]&lt;br&gt;
 [[Base De Datos]]&lt;br&gt;
 [[Programación]]&lt;br&gt;
@@ -5844,6 +5864,20 @@ gcc programa.o loquesea.o -0 programa
 &lt;li&gt;//añadir .exe si estamos en windows
 </pre>
 </div>
+<div created="20141014234240722" creator="cristian" draft.of="GettingStarted" draft.title="GettingStarted" modified="20141014234330142" modifier="cristian" title="Draft of 'GettingStarted'">
+<pre>Welcome to TiddlyWiki, the non-linear personal web notebook.
+
+To get started, first verify that you can save changes successfully - see http://tiddlywiki.com/ for detailed instructions.
+
+Then you can:
+
+* Create new tiddlers using the 'plus' button in the sidebar
+* Visit the [[control panel|$:/ControlPanel]] using the 'cog' button in the sidebar to customise your wiki
+** Stop this message appearing by changing the default tiddlers under the ''Basics'' tab
+* Save changes using the 'download' button in the sidebar
+* Learn more about [[WikiText|http://tiddlywiki.com/static/WikiText.html]]
+</pre>
+</div>
 <div created="20141014231616534" creator="cristian" modified="20141014231637955" modifier="cristian" tags="1ºASIX marcas" title="Ejercicio_3_Vinos">
 <pre>`
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -6096,10 +6130,28 @@ version=&quot;1.0&quot;&gt;
 !!UF3: Implantación Y Mantenimiento De CPD
 </pre>
 </div>
+<div created="20141014234240722" creator="cristian" modified="20141014234240722" modifier="cristian" title="GettingStarted">
+<pre>Welcome to TiddlyWiki, the non-linear personal web notebook.
+
+To get started, first verify that you can save changes successfully - see http://tiddlywiki.com/ for detailed instructions.
+
+Then you can:
+
+* Create new tiddlers using the 'plus' button in the sidebar
+* Visit the [[control panel|$:/ControlPanel]] using the 'cog' button in the sidebar to customise your wiki
+** Stop this message appearing by changing the default tiddlers under the ''Basics'' tab
+* Save changes using the 'download' button in the sidebar
+* Learn more about [[WikiText|http://tiddlywiki.com/static/WikiText.html]]
+</pre>
+</div>
 <div created="20141014233421597" creator="cristian" modified="20141014233428779" modifier="cristian" tags="[[2º ASIX]] web" title="Implantación APP Web">
 <pre>!!!UF1: Lenguajes De Guiones De Servidor
 
 !!!UF2: Implantación De Gestor De Contenidos</pre>
+</div>
+<div created="20141014234518308" creator="cristian" modified="20141014234732490" modifier="cristian" title="Index">
+<pre>[[1º ASIX]]&lt;br&gt;
+[[2º ASIX]]</pre>
 </div>
 <div created="20141014231125647" creator="cristian" modified="20141014231251254" modifier="cristian" tags="1ºASIX marcas" title="Json">
 <pre>!!!Activitats d'exemple Amb Json
