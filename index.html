@@ -215,6 +215,8 @@ Error message and password prompt
 
 <li>DCHP</li>
 
+<li>Draft of 'DCHP'</li>
+
 <li>Draft of 'GettingStarted'</li>
 
 <li>Ejercicio_3_Vinos</li>
@@ -4833,7 +4835,7 @@ Error message and password prompt
 <div created="20141014210432271" modified="20141014210444074" title="$:/SiteTitle">
 <pre>Cristian Wiki</pre>
 </div>
-<div modified="20141014225953183" modifier="cristian" title="$:/state/showeditpreview">
+<div modified="20141015130407146" modifier="cristian" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
 <div modified="20141014234352112" modifier="cristian" title="$:/state/tab-1749438307">
@@ -4845,7 +4847,7 @@ Error message and password prompt
 <div created="20141014210502872" creator="c" modified="20141014210504198" modifier="cristia" title="$:/status/UserName">
 <pre>cristian</pre>
 </div>
-<div list="[[2º ASIX]] [[Servicios De Red]] DCHP" title="$:/StoryList">
+<div list="[[Draft of 'DCHP']] Index [[2º ASIX]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -4868,8 +4870,8 @@ Error message and password prompt
 <div created="20141014210655796" creator="cristian" modified="20141014233510275" modifier="cristian" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20141014210609710" creator="cristian" modified="20141014234752279" modifier="cristian" title="$:/temp/search">
-<pre></pre>
+<div created="20141014210609710" creator="cristian" modified="20141015130005865" modifier="cristian" title="$:/temp/search">
+<pre>dhc</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="A clean theme that emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.2">
 <pre>{
@@ -5883,6 +5885,50 @@ Una vez instalado ya podemos passar a configurarlo
 
 &lt;h3&gt;&lt;u&gt;Configuración del servidor&lt;/u&gt;&lt;/h3&gt;
   
+</pre>
+</div>
+<div created="20141014235213128" creator="cristian" draft.of="DCHP" draft.title="DCHP" modified="20141015132210923" modifier="cristian" tags="servicios [[2º ASIX]]" title="Draft of 'DCHP'">
+<pre>&lt;p&gt; La actividad que se nos ha planteado es configurar un servidor dhcp en devian&lt;/p&gt;
+
+&lt;p&gt;He utilizado al final un ubunut 13.04 server, porque la maquina de debian me daba un error al iniciar el ''servidor dhcp''&lt;/p&gt;
+
+&lt;u&gt;&lt;h2&gt;Instalación i configuración&lt;/h2&gt;&lt;/u&gt;
+&lt;h3&gt;&lt;u&gt;Instalación&lt;/u&gt;&lt;/h3&gt;
+Para instalar el servidor, en ubuntu server es ''dhcp3-server''
+
+Por lo tanto en el terminal ejecutamos este comando:
+
+&lt;i&gt;sudo apt-get install dhcp3-server&lt;/i&gt;
+
+Una vez instalado ya podemos pasar a configurarlo
+
+&lt;h3&gt;&lt;u&gt;Configuración del servidor&lt;/u&gt;&lt;/h3&gt;
+
+&lt;p&gt;Lo primero que tendremos que hacer es configurar la interface por donde escuchara el servidor, para ello podemos hacerlo de dos maneras.&lt;/p&gt;
+
+
+*1ª Por el fichero &lt;b&gt;/etc/default/isc-dhcp-server&lt;/b&gt;
+*2ª Por el comando &lt;b&gt;dpkg-reconfigure isc-dhcp-server&lt;/b&gt;
+
+&lt;p&gt; En el primer caso tendremos que buscar la linea que ponga:
+`
+INTERFACES=&quot;&quot;
+`
+`
+IMG_3
+` 
+
+&lt;/p&gt;
+'`
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;IMG_4&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+`
+&lt;p&gt;En el segundo caso es un poco más didactico como podemos ver en la imagen&lt;/p&gt;
+
+Una vez configurado las interfaces hay que configurar lo que es el servidor en si.
+Para ello tenemos que editar el fichero:
+&lt;b&gt;&lt;i&gt;dhcp.conf&lt;/i&gt;&lt;/b&gt;&lt;br&gt;
+Este fichero lo encontramos en la ruta:
+&lt;b&gt;/etc/dhcp&lt;/b&gt;
 </pre>
 </div>
 <div created="20141014234240722" creator="cristian" draft.of="GettingStarted" draft.title="GettingStarted" modified="20141014234330142" modifier="cristian" title="Draft of 'GettingStarted'">
