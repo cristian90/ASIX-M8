@@ -5917,18 +5917,18 @@ subnet 10.33.1.0 netmask 255.255.255.0 {
 
 </pre>
 </div>
-<div created="20141027125551676" creator="cristian" modified="20141027141632429" modifier="cristian" title="DNS">
+<div created="20141027125551676" creator="cristian" modified="20141027150418144" modifier="cristian" title="DNS">
 <pre>*__NSLOKUP__
 Preguntamos al servidor `a.nic.es` sobre la web `www.mec.es`.
 Esta es la respuesta:
-[img[https://lh4.googleusercontent.com/fiWVEHymGRDmunvywc5d8kFRlork8f2bb2VmtlGlKQBPBJdT3vO1_a6OBUo5KJYET4KP0kvoHtY=w1277-h563]]
+[img[https://lh3.googleusercontent.com/5YIw8Wt92YKAJhplEazFiAlXGbTUMik_a_TWPsH4h4QDfZL0soScD2SCZlYrGBjNUgwfZFJUhTo=w1256-h795]]
 como podemos ver nos da toda su información name server, la dirección IP,etc.
 
 Le preguntamos lo mismo per a la web de `www.google.com`
 
 Y la respuesta es la siguiente:
 
-[img[https://lh3.googleusercontent.com/-eWKqw2AMFvngsvgCNXCe1TPhz_opyjnq-LHmyDNSjJk0HqxC51inhtHcG3nTxfJ7r30VVsGX0Y=w1277-h563]]
+[img[https://lh3.googleusercontent.com/s6qhlKWRpImGaWSUguc7jqPtyeb0yE_qhCppr4XasRjDvPERUHigLKkc5UeVckVqZz-LfCXUbQY=w1256-h795]]
 
 En este caso la conexión se a descartado ya que `google` no lo hemos añadido al servidor como hemos hecho con `mec.es`
 
@@ -5936,52 +5936,52 @@ En este caso la conexión se a descartado ya que `google` no lo hemos añadido a
 
 Vamos a obtener la IP de `www.mec.es` para ello escribimos `host www.mec.es` y el resultado es:
 
-[img[https://lh4.googleusercontent.com/0nVeevO4Wv5EwqzlMmK9UbK3oxQhuZZQkO9AFiWkdTGXwBIt-ygzjz_2ApJyKXIlxKRz00GzNnY=w1277-h563]] 
+[img[https://lh6.googleusercontent.com/7rh6ujzFIzu0WVCtl5JsQNIPTwnZj9rznZRm5dJeqnJ_shnlOMbs8py_BDhu0Wm3HCVgIS4TYWI=w1256-h795]] 
 
 Ahora vamos a obtener el nombre de la IP `8.8.8.8` en un principio es muy conocida y es `Google` pero vamos a asegurarnos, escribimos esto en el terminal:
 
 `host 8.8.8.8`&lt;br&gt;
 Y el resultado es este:
-[img[https://lh5.googleusercontent.com/hdMXocgZLvyJFTlfa7AFysq3Sufsg6TJCM__4_EHCjebtGMnjVNybzoFzgbODXNbvG1ZBns95Y8=w1277-h563]]
+[img[https://lh3.googleusercontent.com/nICRRLe5vJHtOVM5TA53aR7Mg0XpqcAdTKMYMcgS1qqzGXP4vfboG_S4BIoxbgMia61qFAasBT0=w1256-h795]]
 Como hemos podido ver pertenece a Google.
 
 Ahora vamos a mostrar el `NAME SERVER`
 lo haremos con los parámetros `NS` y la opción `-t`.&lt;br&gt;
 Y este es el resultado:
 
-[img[https://lh6.googleusercontent.com/aD0wR0bhyu3v9fi2v29SUUqSE1i_HGnVSHGUwaeBA45K7IoczolfxB0aWcu7ERyjq4Y1wOGnAdE=w1277-h563]]
+[img[https://lh4.googleusercontent.com/MFzJYc0iA1cuIViediVirLdz1Wc_MlWCwm7uPE-Mq4OHeh1SyHIyyHkfEKnXs0b2StUOquNf4CE=w1256-h795]]
 
 Ahora vamos a consultar los registros SOA, si no sabes que son pulsa [[aqui|http://www.codigomaestro.com/dns/registros-soa-en-servidores-dns/]].
 
 Una vez consultados nos muestra esto:
-[img[https://lh3.googleusercontent.com/p400k35iiIvWzxBCx_bEIgmX7BagYDUU90uK0TWow-9FtjlzUfMm0te-gVYAHqi_StSXlXQqrtQ=w1277-h563]]
+[img[https://lh4.googleusercontent.com/spSiA2tKO1_5Brpnb0eIc0fDrltvLtADRyz8133AsbSfDBRVAb5J202tfSwxLvnqyQl_GpZQsUw=w1256-h795]]
 
 *__DIG__
 
 Vamos a obtener la ip de `mec.es` para ello ponemos en un terminal esto:&lt;br&gt;
 `dig www.mec.es`&lt;br&gt;
 Y este es el resultado:
-[img[https://lh5.googleusercontent.com/3bP6WncPAXOxTYmtdpYitbPmc4zhVqgWsvL5ikP22iEIJf980qchQR48hoA7jY8Wg1Hokbs8EYs=w1277-h563]]
+[img[https://lh6.googleusercontent.com/UOrNbmET2oZSQsD__wdjweJY54ft-52ZJWfFU1PRUNmF79TNfMFAPvP-rwPvKje-iPSb5Hgrl9I=w1256-h795]]
 Ahora vamos a obtener el nombre asociado a una IP.
 Para ello utilizamos la opción `-x` que un reverse.
-[img[https://lh4.googleusercontent.com/ErNftJpcQZMEU_CFCAhcd6GoYLJbVA2b-tFvIG_uJZvfvaWkSHks-eAsULQc0wNSapWsGp_hqwY=w1277-h563]]
+[img[https://lh3.googleusercontent.com/w-7eaH624NBHJX-2T5vaf6QIZipj9vSoYoXNOVTPXH6KlFVt8fu8nYVXqDzSzH9PVHIO5M-IUYA=w1256-h795]]
 Esto nos da la información de DNS cuando le pasamos una IP.
 
 Ahora vamos a consultar todos los registros del recurso `mec.es`.
-[img[https://lh5.googleusercontent.com/ZcW30Pe5GoV8QwYNvE6HlBknrjGFrhi6khV9Roq1Q030NJxf9AzJoKvgBXG1WSXUEuKydzjfX5Y=w1277-h563]]
+[img[https://lh6.googleusercontent.com/8ty08ZI_ODWs9AX5Qpnjn8ZiGJaMJFjsDzP0A5yZ_8KRqg9TMPsAkkt8d1xlNw7Ou1dGGFTGHp4=w1256-h795]]
 
 `¿Cómo podríamos obtener el registro SOA del dominio google.es.?`
 
 De la Siguiente manera:&lt;br&gt;
 `dig google.es SOA` O `dig @8.8.8.8 google.es SOA`
 
-[img[https://lh6.googleusercontent.com/RLTuSkU7vqx2M2VltL8N7j2CeuI5bvZM3IZxMS1IbRzk-mhR9P4-pPgeBlu31Cc2RRj_6GZo4MA=w1277-h563]]
+[img[https://lh5.googleusercontent.com/jN5jSboTETYyeHZsvf-Y0eGDMoJKXsUMkpIvFh7P6nC3GczFUGRqW2Ju8kle0opBcj41hHszSsg=w1256-h795]]
 
 `¿Y los registros de tipo A de a.root-servers.net?`
 
 Hacemos lo mismo pero esta vez ponemos `A` en vez de `SAO`
 
-[img[https://lh6.googleusercontent.com/9bt0T6hqM8avARy0D2StXhyN34uu8yzTotuGrkhI8o-l3h2bseZhBHF_6xUzV8r0kXf9ersfj8E=w1277-h563]]
+[img[https://lh4.googleusercontent.com/ALKwPw3w-M-NsAHlsNwhRAYxn22jO6ni1aE_R3_IMtpKbvV8HyjbaWV_tvT2GA1u_YhDcDS-G-U=w1256-h795]]
 </pre>
 </div>
 <div created="20141014234240722" creator="cristian" draft.of="GettingStarted" draft.title="GettingStarted" modified="20141014234330142" modifier="cristian" title="Draft of 'GettingStarted'">
