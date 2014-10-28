@@ -5919,13 +5919,13 @@ subnet 10.33.1.0 netmask 255.255.255.0 {
 
 </pre>
 </div>
-<div created="20141028104122393" creator="cristian" modified="20141028115505729" modifier="cristian" title="DHCP Dos Tarjetas">
+<div created="20141028104122393" creator="cristian" modified="20141028115837699" modifier="cristian" title="DHCP Dos Tarjetas">
 <pre>Ahora vamos a poner el mismo servidor de dhcp que teníamos pero con 2 tarjetas. para ello tendremos que poner en el archivo:
 `/etc/network/interface`
 
 y tenemos que agregar la IP fija para la segunda interface.
 Lo dejamos Asi:
-[img[https://lh3.googleusercontent.com/HKCmqGKmgXk-WNRZOloMfvfkgbQu2r7HO6AOAc75N-9YWH9lcmXTQQ8artsxLsDk6ibVC5QHWWM=w1277-h563]]
+[img[https://lh3.googleusercontent.com/HKCmqGKmgXk-WNRZOloMfvfkgbQu2r7HO6AOAc75N-9YWH9lcmXTQQ8artsxLsDk6ibVC5QHWWM=w1277-h563]]&lt;br&gt;
 Una vez hecho eso tenemos que poner también a la interface a escuchar para ello tenemos que agregarla en el fichero:
 `/etc/default/is-dhcp-server`
 [img[https://lh4.googleusercontent.com/yMtx_kMqlu8Pjt6eiAOTmNgNmB4ihV9Lnslq6hg7zjwJMVAVgPynyiUJf1CIXu_zUDJ-VuvBgu8=w1277-h563]]
