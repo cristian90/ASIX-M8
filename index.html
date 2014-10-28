@@ -215,6 +215,8 @@ Error message and password prompt
 
 <li>DCHP</li>
 
+<li>DHCP Dos Tarjetas</li>
+
 <li>DNS</li>
 
 <li>Draft of 'GettingStarted'</li>
@@ -4851,7 +4853,7 @@ Error message and password prompt
 <div created="20141014210502872" creator="c" modified="20141014210504198" modifier="cristia" title="$:/status/UserName">
 <pre>cristian</pre>
 </div>
-<div list="DNS Index" title="$:/StoryList">
+<div list="[[DHCP Dos Tarjetas]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5917,6 +5919,27 @@ subnet 10.33.1.0 netmask 255.255.255.0 {
 
 </pre>
 </div>
+<div created="20141028104122393" creator="cristian" modified="20141028115505729" modifier="cristian" title="DHCP Dos Tarjetas">
+<pre>Ahora vamos a poner el mismo servidor de dhcp que teníamos pero con 2 tarjetas. para ello tendremos que poner en el archivo:
+`/etc/network/interface`
+
+y tenemos que agregar la IP fija para la segunda interface.
+Lo dejamos Asi:
+[img[https://lh3.googleusercontent.com/HKCmqGKmgXk-WNRZOloMfvfkgbQu2r7HO6AOAc75N-9YWH9lcmXTQQ8artsxLsDk6ibVC5QHWWM=w1277-h563]]
+Una vez hecho eso tenemos que poner también a la interface a escuchar para ello tenemos que agregarla en el fichero:
+`/etc/default/is-dhcp-server`
+[img[https://lh4.googleusercontent.com/yMtx_kMqlu8Pjt6eiAOTmNgNmB4ihV9Lnslq6hg7zjwJMVAVgPynyiUJf1CIXu_zUDJ-VuvBgu8=w1277-h563]]
+[img[https://lh6.googleusercontent.com/lN-7uvoialbuX2AWsn0a7vxaQibyw9T2xRd3a1-iR8EiC7sWQtzlrgfj2nfRJs3eVUDvkepovC4=w1277-h563]]&lt;br&gt;
+Ahora en el fichero de configuración del servidor que es el siguiente:&lt;br&gt;
+`/etc/dhcp/dhcpd.conf`&lt;br&gt;
+Tenemos que editarlo para que utilice otra red, justo debajo de la subnet actual pondremos la configuración de la nueva red, además en esta tendremos que poner la IP de la interface como `options routers` dejandolo de la siguiente manera:
+
+[img[https://lh6.googleusercontent.com/5jBNPhjGMZlDOcGDGu5BBVlsc02aUvoxSFk2SbYhYj4pXy2UUeD40nj1OaaP5tHzMK-tm7AamEg=w1277-h563]]
+ 
+Aquí podemos ver el resultado:
+
+[img[https://lh3.googleusercontent.com/Crwh-xfmJ9fiYSw-KPTDchKlgpSklTXfm_jHrVczRii2k_QjYepiMWQzmq919qtIj84-vY19w20=w1277-h563]]</pre>
+</div>
 <div created="20141027125551676" creator="cristian" modified="20141027150418144" modifier="cristian" title="DNS">
 <pre>*__NSLOKUP__
 Preguntamos al servidor `a.nic.es` sobre la web `www.mec.es`.
@@ -6655,12 +6678,13 @@ java -cp saxon9he.jar net.sf.saxon.Query -s:input.xml -q:fitxer.xquery -o:result
 
 !!!UF4: Alta Disponibilidad</pre>
 </div>
-<div created="20141014233242598" creator="cristian" modified="20141027125537373" modifier="cristian" tags="servicios [[2º ASIX]]" title="Servicios De Red">
+<div created="20141014233242598" creator="cristian" modified="20141028103749539" modifier="cristian" tags="servicios [[2º ASIX]]" title="Servicios De Red">
 <pre>!!!UF1: Servicios De Nombres Y Configuración Automatica
 [[Tcp-IP]]&lt;br&gt;
 [[DCHP]]&lt;br&gt;
 [[IPCOP]]&lt;br&gt;
-[[DNS]]
+[[DNS]]&lt;br&gt;
+[[DHCP Dos Tarjetas]]
 
 !!!UF2: Servicios Web Y De Transferencia De Ficheros
 
