@@ -209,6 +209,8 @@ Error message and password prompt
 
 <li>BaseX</li>
 
+<li>BBDD</li>
+
 <li>Cadenas</li>
 
 <li>Crear Cabezeras</li>
@@ -218,6 +220,8 @@ Error message and password prompt
 <li>DHCP Dos Tarjetas</li>
 
 <li>DNS</li>
+
+<li>Draft of 'FTP'</li>
 
 <li>Draft of 'GettingStarted'</li>
 
@@ -256,6 +260,8 @@ Error message and password prompt
 <li>M2-SQLl</li>
 
 <li>M2-UF3</li>
+
+<li>MYSQLDUMP</li>
 
 <li>PHP</li>
 
@@ -4853,7 +4859,7 @@ Error message and password prompt
 <div created="20141014210502872" creator="c" modified="20141014210504198" modifier="cristia" title="$:/status/UserName">
 <pre>cristian</pre>
 </div>
-<div list="[[DHCP Dos Tarjetas]] Index" title="$:/StoryList">
+<div list="Index [[2º ASIX]] M2-UF3 MYSQLDUMP" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5193,7 +5199,7 @@ set valor=3;
 `
 </pre>
 </div>
-<div created="20141014210846497" creator="cristian" modified="20141014232626510" modifier="cristian" tags="[[2º ASIX]]" title="2º ASIX">
+<div created="20141014210846497" creator="cristian" modified="20141105173731701" modifier="cristian" tags="[[2º ASIX]]" title="2º ASIX">
 <pre>[[M1-UF4]]&lt;br&gt;
 [[M10-UF2]]&lt;br&gt;
 [[M2-UF2]]&lt;br&gt;
@@ -5203,7 +5209,8 @@ set valor=3;
 [[Administración De Redes]]&lt;br&gt;
 [[Servicios De Red]]&lt;br&gt;
 [[Implantación APP Web]]&lt;br&gt;
-[[Seguridad Informatica]]</pre>
+[[Seguridad Informatica]]&lt;br&gt;
+[[BBDD]]</pre>
 </div>
 <div created="20141014214207500" creator="cristian" modified="20141014214219599" modifier="cristian" title="3.Apuntes Funciones">
 <pre>''La sintaxis es muy parecida a la de CREATE PROCEDURE:''
@@ -5804,6 +5811,70 @@ I Per Encendre el Cliente Utilitzem:
 Es te que tenir en conte que les comandes es tenen que executar al directori on tinguem el BaseX.jar
 `</pre>
 </div>
+<div created="20141105173850948" creator="cristian" modified="20141117145419763" modifier="cristian" title="BBDD">
+<pre>!!Actividad_Mysql_1
+*Crea una base de datos. Llámala 'copias'. Añádele un par de tablas ~MySam. Inserta algunos datos.
+
+`CREATE DATABASE IF NOT EXISTS COPIAS;
+USE COPIAS;
+
+CREATE TABLE COPIAS1 (
+	ID INT AUTO_INCREMENT,
+	NOMBRE VARCHAR(20) NOT NULL DEFAULT '¿NOMBRE?',
+	PRIMARY KEY(ID)	
+)ENGINE=MyISAM;
+
+CREATE TABLE COPIAS2 (
+	ID INT AUTO_INCREMENT,
+	NOMBRE VARCHAR(20) NOT NULL DEFAULT '¿NOMBRE?',
+	PRIMARY KEY(ID)	
+)ENGINE=MyISAM;`
+
+*Activa el archivo de log de cambios.
+
+`SET GLOBAL general_log=1;`
+
+`Ademas tendremos que descomentar el log del fichero my.conf `
+
+*Realiza una copia completa de la base de datos utilizando mysqldump.
+`mysqldump -u root -paustria COPIAS &gt; copias_bak.sql`
+
+*Realiza alguna inserción más en la bbdd.
+`INSERT INTO COPIAS1 VALUES (0,'REPARAR');`
+
+*Supón que se produce una caída del sistema. ¿Cómo restauramos la base de datos? //Ayuda: hay que restaurar primero la copia completa y, a continuación, restaurar los cambios realizados sobre la bbdd despues de realizar la copia completa//
+@@background-color:grey;
+ACTIVIDAD RESUELTA
+@@
+!!Actividad_Mysql_2
+Busca información sobre Enterprise Product de ~MySql. ¿Qué ofrece?
+@@background-color:grey;
+ACTIVIDAD RESUELTA
+@@
+!!Actividad_MySql_3
+Realiza una copia física de la bbdd 'copias'. Envíasela a tu compañero. 
+@@background-color:grey;
+ACTIVIDAD RESUELTA
+@@
+Restaura la copia que te haya pasado tu compañero.
+@@background-color:grey;
+ACTIVIDAD RESUELTA
+@@
+¿Qué archivos has tenido que copiar?¿Qué problemas te has encontrado?
+@@background-color:grey;
+ACTIVIDAD RESUELTA
+@@
+!!Actividad_MySql_4
+Realiza una copia lógica de la bbdd 'copias' dando formato a los datos de tal manera que luego se puedan cargar desde googleDocs o ~LibreOffice. ¿Se puede conseguir?¿Qué problemas tienes?
+@@background-color:grey;
+ACTIVIDAD RESUELTA
+@@
+!!Actividad_MySql_5: Ampliación
+Escribe un script de shell que realice una copia de la base de datos y la envíe a un servidor ftp.
+@@background-color:grey;
+ACTIVIDAD RESUELTA
+@@</pre>
+</div>
 <div created="20141014222431111" creator="cristian" modified="20141014223008621" modifier="cristian" tags="1ºASIX Programacion" title="Cadenas">
 <pre>Para poder utilizar las cademas debemos utilizar esta libreria &gt; ''string.h''
 
@@ -5919,39 +5990,39 @@ subnet 10.33.1.0 netmask 255.255.255.0 {
 
 </pre>
 </div>
-<div created="20141028104122393" creator="cristian" modified="20141028192215606" modifier="cristian" title="DHCP Dos Tarjetas">
+<div created="20141028104122393" creator="cristian" modified="20141030155728528" modifier="cristian" title="DHCP Dos Tarjetas">
 <pre>Ahora vamos a poner el mismo servidor de dhcp que teníamos pero con 2 tarjetas. para ello tendremos que poner en el archivo:
 `/etc/network/interface`
 
 y tenemos que agregar la IP fija para la segunda interface.
 Lo dejamos Asi:
-[img[https://lh5.googleusercontent.com/7zC1mks1HfdDshLIcR5A4oqsprDKf4PjOcQJ-rd3cy_NuQmwzRvLX8vs39XhtN3l_yQ18aZdsBA=w1256-h795]]&lt;br&gt;
+[img[https://lh5.googleusercontent.com/i1R24kFwcvZ29VNAiit40Aig1lZpXeAVQINTLEA13OtcxWdJorLQy6ZTILi-n6n9k424fw0YQ00=w1256-h795]]&lt;br&gt;
 Una vez hecho eso tenemos que poner también a la interface a escuchar para ello tenemos que agregarla en el fichero:
 `/etc/default/is-dhcp-server`
-[img[https://lh4.googleusercontent.com/Oqprf9faI-gsVuGpVwDaio8-yrWdk48cXJqV1XJ-GGIrvl5UvqJz-Wi9QD3ckfsEVdmen8MlkOY=w1256-h795]]
-[img[https://lh5.googleusercontent.com/tRBHUgb86-achx8mbMlFGOnvQXo0BPPjFY6vmlp2YK5pWjomHdZtoFtMB0DGXBsxy9SbO9HgyoQ=w1256-h795]]&lt;br&gt;
+[img[https://lh6.googleusercontent.com/BNs7YeeOR_XXB954FoUqqEctWdk25NMEZuyOPKrlTH84wZMv0-KIAp-8KHeZcn6U7pikTNEchJ4=w1256-h795]]
+[img[https://lh5.googleusercontent.com/piAIWZRYz48CWh_FOzPSdbIlWb55AwFafbjBVCZ3PYPstgbBUTI3EQ6knjrs8dZOUeWJeAnfTGI=w1256-h795]]&lt;br&gt;
 Ahora en el fichero de configuración del servidor que es el siguiente:&lt;br&gt;
 `/etc/dhcp/dhcpd.conf`&lt;br&gt;
 Tenemos que editarlo para que utilice otra red, justo debajo de la subnet actual pondremos la configuración de la nueva red, además en esta tendremos que poner la IP de la interface como `options routers` dejandolo de la siguiente manera:
 
-[img[https://lh4.googleusercontent.com/8BQdxn-Ds33fFcqDXMfR7c9V9H4WN1agJNT17WqvKBMZCJYsCDH2ds2ss640z4yRO3Hz2lyltDQ=w1256-h795]]&lt;br&gt;
+[img[https://lh4.googleusercontent.com/_PurxmjOmlPfB6i0poOBDsKwLiWz7iUBKh34CtjUXEYHIg4m3KjW6mPvhg1k-_hhDawQI8jsjXs=w1256-h795]]&lt;br&gt;
  
 Aquí podemos ver el resultado:
 
-[img[https://lh5.googleusercontent.com/BJDpJ365t462mk3lRg38s7pAANeX6k8YX7fASz4jk0JsgPCnsuJ83XCaV-ZZ2K-Tc4bSwlP4gpo=w1256-h795]]</pre>
+[img[https://lh6.googleusercontent.com/xb5l9RYZoC1Zcx-4__TEEJDp2Qjed8WSgizGkYHXDsdS4IovVsJSxc3G3Tzfli-IWKz_MT_sFn4=w1256-h795]]</pre>
 </div>
-<div created="20141027125551676" creator="cristian" modified="20141027150418144" modifier="cristian" title="DNS">
+<div created="20141027125551676" creator="cristian" modified="20141030203313415" modifier="cristian" title="DNS">
 <pre>*__NSLOKUP__
 Preguntamos al servidor `a.nic.es` sobre la web `www.mec.es`.
 Esta es la respuesta:
-[img[https://lh3.googleusercontent.com/5YIw8Wt92YKAJhplEazFiAlXGbTUMik_a_TWPsH4h4QDfZL0soScD2SCZlYrGBjNUgwfZFJUhTo=w1256-h795]]
+[img[https://lh4.googleusercontent.com/at2X14D_Vjblo7tqzapmQyG7xfq8cN48o_0VyNx3U0257CIr-gx9FT3_Q4pz8eQF-mXIFoevWs0=w1256-h795]]
 como podemos ver nos da toda su información name server, la dirección IP,etc.
 
 Le preguntamos lo mismo per a la web de `www.google.com`
 
 Y la respuesta es la siguiente:
 
-[img[https://lh3.googleusercontent.com/s6qhlKWRpImGaWSUguc7jqPtyeb0yE_qhCppr4XasRjDvPERUHigLKkc5UeVckVqZz-LfCXUbQY=w1256-h795]]
+[img[https://lh6.googleusercontent.com/jYfXV0G6V55DpPqTHVYAcXHGais8B-HMcOR65bcbQRy0W2Ux_7nUO8R0hbuV5kESPKsAQXZxxwE=w1256-h795]]
 
 En este caso la conexión se a descartado ya que `google` no lo hemos añadido al servidor como hemos hecho con `mec.es`
 
@@ -5959,52 +6030,81 @@ En este caso la conexión se a descartado ya que `google` no lo hemos añadido a
 
 Vamos a obtener la IP de `www.mec.es` para ello escribimos `host www.mec.es` y el resultado es:
 
-[img[https://lh6.googleusercontent.com/7rh6ujzFIzu0WVCtl5JsQNIPTwnZj9rznZRm5dJeqnJ_shnlOMbs8py_BDhu0Wm3HCVgIS4TYWI=w1256-h795]] 
+[img[https://lh4.googleusercontent.com/fQaHo21jFIHoREx5rFCj0eVZkR1QBBd_9ndG5rBUJpFl1cOI48krAwHLi0uWSbUY10RABhq4aSE=w1256-h795]] 
 
 Ahora vamos a obtener el nombre de la IP `8.8.8.8` en un principio es muy conocida y es `Google` pero vamos a asegurarnos, escribimos esto en el terminal:
 
 `host 8.8.8.8`&lt;br&gt;
 Y el resultado es este:
-[img[https://lh3.googleusercontent.com/nICRRLe5vJHtOVM5TA53aR7Mg0XpqcAdTKMYMcgS1qqzGXP4vfboG_S4BIoxbgMia61qFAasBT0=w1256-h795]]
+[img[https://lh6.googleusercontent.com/SvDzxuHC4dgO78fpSR0YSD3lg3mPAs02Oy5WMSBLMdWsVfMEQqpg5uBIQ-33956EbzCSZRk1ArE=w1256-h795]]
 Como hemos podido ver pertenece a Google.
 
 Ahora vamos a mostrar el `NAME SERVER`
 lo haremos con los parámetros `NS` y la opción `-t`.&lt;br&gt;
 Y este es el resultado:
 
-[img[https://lh4.googleusercontent.com/MFzJYc0iA1cuIViediVirLdz1Wc_MlWCwm7uPE-Mq4OHeh1SyHIyyHkfEKnXs0b2StUOquNf4CE=w1256-h795]]
+[img[https://lh4.googleusercontent.com/CqaZXdY-wDop0gyFpk7_kmGTcV26KIkJc2A_fdiGg1-6AIvEwgLswezbvYc_hVP1RorRRJbgYJ0=w1256-h795]]
 
 Ahora vamos a consultar los registros SOA, si no sabes que son pulsa [[aqui|http://www.codigomaestro.com/dns/registros-soa-en-servidores-dns/]].
 
 Una vez consultados nos muestra esto:
-[img[https://lh4.googleusercontent.com/spSiA2tKO1_5Brpnb0eIc0fDrltvLtADRyz8133AsbSfDBRVAb5J202tfSwxLvnqyQl_GpZQsUw=w1256-h795]]
+[img[https://lh6.googleusercontent.com/vyjRDIigMqoxwKear_8nyp_maf30p5qKBEpYslLdFvF60edxEtKCMb87U8hpmTQ8dNIQOmTyw1g=w1256-h795]]
 
 *__DIG__
 
 Vamos a obtener la ip de `mec.es` para ello ponemos en un terminal esto:&lt;br&gt;
 `dig www.mec.es`&lt;br&gt;
 Y este es el resultado:
-[img[https://lh6.googleusercontent.com/UOrNbmET2oZSQsD__wdjweJY54ft-52ZJWfFU1PRUNmF79TNfMFAPvP-rwPvKje-iPSb5Hgrl9I=w1256-h795]]
+[img[https://lh4.googleusercontent.com/SYc8zcbwtjb6JMUTQbmLfLlOYXK0CTj1kW2ak0jAW8iRhHE3S9Ajsj70vt89YwnU5a8eUx4WM5o=w1256-h795]]
 Ahora vamos a obtener el nombre asociado a una IP.
 Para ello utilizamos la opción `-x` que un reverse.
-[img[https://lh3.googleusercontent.com/w-7eaH624NBHJX-2T5vaf6QIZipj9vSoYoXNOVTPXH6KlFVt8fu8nYVXqDzSzH9PVHIO5M-IUYA=w1256-h795]]
+[img[https://lh4.googleusercontent.com/QwwHTpahNTmpnvfXizODybrYsdbWSwwIKDY0vyR30IWgKvfnMHlexruBGvh8Ci37bajXjdoY3H8=w1256-h795]]
 Esto nos da la información de DNS cuando le pasamos una IP.
 
 Ahora vamos a consultar todos los registros del recurso `mec.es`.
-[img[https://lh6.googleusercontent.com/8ty08ZI_ODWs9AX5Qpnjn8ZiGJaMJFjsDzP0A5yZ_8KRqg9TMPsAkkt8d1xlNw7Ou1dGGFTGHp4=w1256-h795]]
+[img[https://lh3.googleusercontent.com/jVu3OY18yknBPzg1b0kiGDvy8DH1zugSelpoO-H5XYJRT63YIaEdzfHNX5wpmB9BWbYUNHogtik=w1256-h795]]
 
 `¿Cómo podríamos obtener el registro SOA del dominio google.es.?`
 
 De la Siguiente manera:&lt;br&gt;
 `dig google.es SOA` O `dig @8.8.8.8 google.es SOA`
 
-[img[https://lh5.googleusercontent.com/jN5jSboTETYyeHZsvf-Y0eGDMoJKXsUMkpIvFh7P6nC3GczFUGRqW2Ju8kle0opBcj41hHszSsg=w1256-h795]]
+[img[https://lh5.googleusercontent.com/75lMNhnA5F8oevovWKqDgyWGPCwwwA4YOlZZLybXgXjfo-YU4PO49gdpfdA-To0gU1ZlQnMaGtM=w1256-h795]]
 
 `¿Y los registros de tipo A de a.root-servers.net?`
 
 Hacemos lo mismo pero esta vez ponemos `A` en vez de `SAO`
 
-[img[https://lh4.googleusercontent.com/ALKwPw3w-M-NsAHlsNwhRAYxn22jO6ni1aE_R3_IMtpKbvV8HyjbaWV_tvT2GA1u_YhDcDS-G-U=w1256-h795]]
+[img[https://lh5.googleusercontent.com/dSCUlx-9XpaS3eUIqlT87evctTpYjw-topIaO4eLQmGBKPHm_OEiapftrg86z2EqL6dZLgKx1z0=w1256-h795]]
+
+* __BIND__
+
+En el nslookup tendremos que poner el servidor tendremos que especificar nuestro servidor en este caso `10.33.1.1`.
+FOTO 1
+Para comprobarlo lo haremos con el dig
+FOTO2
+Y este es el resultado es el siguiente:
+FOTO3
+
+**__Zonas__
+
+***__Creación De Zonas__
+
+Para crear zonas tendremos que editar varios ficheros es primero:
+`/etc/bind/named.conf.local`
+
+Y tendremos que añadir la zona.
+de la siguiente manera:
+FOTO4
+
+Después tendremos que crear el fichero de configuración de la zona, de la siguiente manera:
+FOTO5
+
+***__Zona inversa__</pre>
+</div>
+<div created="20141117145506812" creator="cristian" draft.of="FTP" draft.title="FTP" modified="20141117145633846" modifier="cristian" title="Draft of 'FTP'">
+<pre>Lo primero que hacemos es instalar el servidor con el siguiente comando: 
+`apt-get install vsftpd`
 </pre>
 </div>
 <div created="20141014234240722" creator="cristian" draft.of="GettingStarted" draft.title="GettingStarted" modified="20141014234330142" modifier="cristian" title="Draft of 'GettingStarted'">
@@ -6562,9 +6662,10 @@ Copilar con math.h gcc programa.c -lm -o programa
 
 `</pre>
 </div>
-<div created="20141014232434158" creator="cristian" modified="20141014232440709" modifier="cristian" title="M10-UF2">
+<div created="20141014232434158" creator="cristian" modified="20141117145451858" modifier="cristian" title="M10-UF2">
 <pre>[[UF1_M10-Len _SQL]]&lt;br&gt;
-[[UF2_Instal·lació i ajustament d’SGBD corporatiu]]</pre>
+[[UF2_Instal·lació i ajustament d’SGBD corporatiu]]&lt;br&gt;
+[[FTP]]</pre>
 </div>
 <div created="20141014211431671" creator="cristian" modified="20141014211522340" modifier="cristian" title="M2-SQLl">
 <pre>!!Apuntes
@@ -6580,8 +6681,69 @@ Copilar con math.h gcc programa.c -lm -o programa
 
 !!Ejercicios</pre>
 </div>
-<div created="20141014232602618" creator="cristian" modified="20141014232714877" modifier="cristian" title="M2-UF3">
-<pre>[[UF3-Assegurament de la informació]]</pre>
+<div created="20141014232602618" creator="cristian" modified="20141119191112680" modifier="cristian" title="M2-UF3">
+<pre>[[UF3-Assegurament de la informació]]&lt;br&gt;
+[[MYSQLDUMP]]</pre>
+</div>
+<div created="20141119191117617" creator="cristian" modified="20141119195726745" modifier="cristian" title="MYSQLDUMP">
+<pre>!!Actividad_Mysql_1
+*Crea una base de datos. Llámala 'copias'. Añádele un par de tablas ~MySam. Inserta algunos datos.
+`SCRIPT`&lt;br&gt;
+*Activa el archivo de log de cambios.
+`Descomentar en el fichero my.cnf`
+&lt;br&gt;
+`
+log_bin = /var/log/mysql/mysql-bin.log
+binlog_cache_size = 256K
+sync_binlog= 256
+expire_logs_days= 14
+max_binlog_size= 100M
+`
+*Realiza una copia completa de la base de datos utilizando mysqldump.
+`
+mysqldump -u root -paustria COPIAS &gt; COPIAS_SEGURIDAD.sql
+`&lt;br&gt;
+*Realiza alguna inserción más en la bbdd.
+`
+INSERT INTO COPIAS1 VALUES (DEFAULT, 'Crstian');
+`&lt;br&gt;
+*Supón que se produce una caída del sistema. ¿Cómo restauramos la base de datos? //Ayuda: hay que restaurar primero la copia completa y, a continuación, restaurar los cambios realizados sobre la bbdd despues de realizar la copia completa//
+`Restauración de la BBDD`&lt;br&gt;
+
+`mysql -u root -paustria &lt; COPIAS_SEGURIDAD.sql
+`&lt;br&gt;
+` Ahora restauramos el ultimo log`&lt;br&gt;
+`
+mysqlbinlog --stop-position=317 | mysql -u root -paustria
+`
+
+!!Actividad_Mysql_2
+Busca información sobre Enterprise Product de ~MySql. ¿Qué ofrece?
+
+`
+inclou el conjunt més complet de característiques avançades, eines de gestió i suport tècnic per assolir els més alts nivells d'escalabilitat de MySQL, la seguretat, la fiabilitat i temps d'activitat.
+`&lt;br&gt;
+
+!!Actividad_MySql_3
+Realiza una copia física de la bbdd 'copias'. Envíasela a tu compañero. 
+Restaura la copia que te haya pasado tu compañero.
+¿Qué archivos has tenido que copiar?¿Qué problemas te has encontrado?
+
+`mysqlhotcopy -u root -p=austria TIENDA2 /root/
+`&lt;br&gt;
+`A tu compañero le pasas esos documentos que se te generan`&lt;br&gt;
+
+!!Actividad_MySql_4
+Realiza una copia lógica de la bbdd 'copias' dando formato a los datos de tal manera que luego se puedan cargar desde googleDocs o ~LibreOffice. ¿Se puede conseguir?¿Qué problemas tienes?
+
+` mysqldump -u root -paustria  --tab=/tmp/ --fields-terminated-by=, --lines-terminated-by=0x0d0a1 COPIAS`&lt;br&gt;
+
+`PROBLEMAS`
+
+`Como tiene que ser en caliente el --tab= solo puede ser /tmp/ ya que da un error si le especificas otro directorio`
+
+!!Actividad_MySql_5: Ampliación
+Escribe un script de shell que realice una copia de la base de datos y la envíe a un servidor ftp.</pre>
 </div>
 <div created="20141014231314856" creator="cristian" modified="20141014231332684" modifier="cristian" tags="1ºASIX marcas" title="PHP">
 <pre>Amb aquest PHP podrem Fer consultes i mostrarles amb un navegador sempre les extensions serán *.php
