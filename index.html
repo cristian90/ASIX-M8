@@ -221,8 +221,6 @@ Error message and password prompt
 
 <li>DNS</li>
 
-<li>Draft of 'FTP'</li>
-
 <li>Draft of 'GettingStarted'</li>
 
 <li>Ejercicio_3_Vinos</li>
@@ -238,6 +236,8 @@ Error message and password prompt
 <li>Ejercicios_Vinos</li>
 
 <li>Fonamentos Del Maquinario</li>
+
+<li>FTP</li>
 
 <li>GettingStarted</li>
 
@@ -4859,7 +4859,7 @@ Error message and password prompt
 <div created="20141014210502872" creator="c" modified="20141014210504198" modifier="cristia" title="$:/status/UserName">
 <pre>cristian</pre>
 </div>
-<div list="Index [[2º ASIX]] M2-UF3 MYSQLDUMP" title="$:/StoryList">
+<div list="FTP MYSQLDUMP Index" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6102,11 +6102,6 @@ FOTO5
 
 ***__Zona inversa__</pre>
 </div>
-<div created="20141117145506812" creator="cristian" draft.of="FTP" draft.title="FTP" modified="20141117145633846" modifier="cristian" title="Draft of 'FTP'">
-<pre>Lo primero que hacemos es instalar el servidor con el siguiente comando: 
-`apt-get install vsftpd`
-</pre>
-</div>
 <div created="20141014234240722" creator="cristian" draft.of="GettingStarted" draft.title="GettingStarted" modified="20141014234330142" modifier="cristian" title="Draft of 'GettingStarted'">
 <pre>Welcome to TiddlyWiki, the non-linear personal web notebook.
 
@@ -6372,6 +6367,28 @@ version=&quot;1.0&quot;&gt;
 
 !!UF3: Implantación Y Mantenimiento De CPD
 </pre>
+</div>
+<div created="20141117145506812" creator="cristian" modified="20141121225539579" modifier="cristian" title="FTP">
+<pre>Lo primero que hacemos es instalar el servidor con el siguiente comando: 
+`apt-get install vsftpd`
+&lt;h3&gt;&lt;u&gt;Actividades&lt;/u&gt;&lt;/h3&gt;
+Para la actividad 1 la configuración viene por defecto, tenemos que añadir a los dos usuarios.
+
+`adduser mortadelo` y `adduser mortadelo`
+
+&lt;h4&gt;Enjaular Usuarios&lt;/h4&gt;
+Para enjaular usuarios existe el fichero `chroot_local_users`
+He encontrado que la versión 2 que instalamos en debian tiene un error y hay que actualizarla a la versión 3, quedara de esta manera el fichero de configuración:
+`
+listen=YES
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES
+pasv_min_port=15000
+pasv_max_port=15200
+allow_writeable_chroot=YES
+`
+Para probar la configuración nos conectamos a el servidor ftp y al hacer l pwd nos tiene que mostrar /</pre>
 </div>
 <div created="20141014234240722" creator="cristian" modified="20141014234240722" modifier="cristian" title="GettingStarted">
 <pre>Welcome to TiddlyWiki, the non-linear personal web notebook.
