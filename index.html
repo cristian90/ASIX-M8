@@ -197,6 +197,8 @@ Error message and password prompt
 
 <li>Agrupaciones y Combinaciones</li>
 
+<li>APACHE</li>
+
 <li>Apuntes</li>
 
 <li>Apuntes Basicos</li>
@@ -4859,7 +4861,7 @@ Error message and password prompt
 <div created="20141014210502872" creator="c" modified="20141014210504198" modifier="cristia" title="$:/status/UserName">
 <pre>cristian</pre>
 </div>
-<div list="FTP MYSQLDUMP Index" title="$:/StoryList">
+<div list="MYSQLDUMP APACHE Index" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5652,6 +5654,27 @@ Junto a estas agrupaciones se utilizan un conjunto de funciones de agrupamiento.
 ''Muestra el nº de empleados por tarea''
 
 `select tarea, count(*) from EMPLEADOS group by tarea;`</pre>
+</div>
+<div created="20141201151411770" creator="cristian" modified="20141203192104970" modifier="cristian" title="APACHE">
+<pre>!Realiza
+#Cambia el mensaje de bienvenida de la página por defecto del Apache. Sustituye el //It works!// por la primera tonteria que se te ocurra. 
+`Para modificar la pagina inicial del apache tenemos que cambiar el archivo iindex.html que lo encontramos en:`
+
+`/var/www/index.html`
+
+#Crea un enlace simbólico a una carpeta de tu escritorio desde el directorio del Apache. Elimina el archivo index.html de dicho directorio, ¿qué sucede? 
+` para crear un enlace simbolico a directorios tenemos que forzar su creación ademas solo el superuser puede crearlos.`
+
+`para crearlo ejecutamos:`
+
+`sudo ln -F -s -f /home/cristian/apache/ /var/www/enlace_simbolic`
+`Que sale como una navegador de archivos`
+
+#Busca información: ¿que es apche2ctl? ¿Para qué sirve? Documéntalo para usos futuros... seguro que lo necesitarás.
+
+``
+
+#Cambia el puerto donde está escuchando apache al 2099. ¿Cómo podemos comprobar que está funcionado el servidor?</pre>
 </div>
 <div created="20141014233117233" creator="cristian" modified="20141014233124941" modifier="cristian" title="Apuntes">
 <pre>''RAID''
@@ -6702,7 +6725,7 @@ Copilar con math.h gcc programa.c -lm -o programa
 <pre>[[UF3-Assegurament de la informació]]&lt;br&gt;
 [[MYSQLDUMP]]</pre>
 </div>
-<div created="20141119191117617" creator="cristian" modified="20141119195726745" modifier="cristian" title="MYSQLDUMP">
+<div created="20141119191117617" creator="cristian" modified="20141203192432039" modifier="cristian" title="MYSQLDUMP">
 <pre>!!Actividad_Mysql_1
 *Crea una base de datos. Llámala 'copias'. Añádele un par de tablas ~MySam. Inserta algunos datos.
 `SCRIPT`&lt;br&gt;
@@ -6760,7 +6783,23 @@ Realiza una copia lógica de la bbdd 'copias' dando formato a los datos de tal m
 `Como tiene que ser en caliente el --tab= solo puede ser /tmp/ ya que da un error si le especificas otro directorio`
 
 !!Actividad_MySql_5: Ampliación
-Escribe un script de shell que realice una copia de la base de datos y la envíe a un servidor ftp.</pre>
+Escribe un script de shell que realice una copia de la base de datos y la envíe a un servidor ftp.
+
+` El script seria el siguiente: `
+
+`#!/bin/sh
+mysqldump -u usuariomysql -pcontraseñamysql BASE_DATOS &gt; NOMBRE_FICHERO.sql
+USER='usuarioftp'
+PASSWD='passwordftp'
+HOST='IP_HOST'
+ftp -n $HOST &lt;&lt;END_SCRIPT
+quote user $USER 
+quote passwd $PASSWD
+cd Directorio_BACKUP
+put NOMBRE_FICHERO
+quit
+END_SCRIPT`
+`</pre>
 </div>
 <div created="20141014231314856" creator="cristian" modified="20141014231332684" modifier="cristian" tags="1ºASIX marcas" title="PHP">
 <pre>Amb aquest PHP podrem Fer consultes i mostrarles amb un navegador sempre les extensions serán *.php
@@ -6857,7 +6896,7 @@ java -cp saxon9he.jar net.sf.saxon.Query -s:input.xml -q:fitxer.xquery -o:result
 
 !!!UF4: Alta Disponibilidad</pre>
 </div>
-<div created="20141014233242598" creator="cristian" modified="20141028141659742" modifier="cristian" tags="servicios [[2º ASIX]]" title="Servicios De Red">
+<div created="20141014233242598" creator="cristian" modified="20141201150143320" modifier="cristian" tags="servicios [[2º ASIX]]" title="Servicios De Red">
 <pre>!!!UF1: Servicios De Nombres Y Configuración Automatica
 [[Tcp-IP]]&lt;br&gt;
 [[DCHP]]&lt;br&gt;
@@ -6867,6 +6906,7 @@ java -cp saxon9he.jar net.sf.saxon.Query -s:input.xml -q:fitxer.xquery -o:result
 [[TCPDUMP ]]
 
 !!!UF2: Servicios Web Y De Transferencia De Ficheros
+[[APACHE]]
 
 !!!UF3: Correo Electronico Y Mensajeria
 
