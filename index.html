@@ -4861,7 +4861,7 @@ Error message and password prompt
 <div created="20141014210502872" creator="c" modified="20141014210504198" modifier="cristia" title="$:/status/UserName">
 <pre>cristian</pre>
 </div>
-<div list="MYSQLDUMP APACHE Index" title="$:/StoryList">
+<div list="MYSQLDUMP Index" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5655,7 +5655,7 @@ Junto a estas agrupaciones se utilizan un conjunto de funciones de agrupamiento.
 
 `select tarea, count(*) from EMPLEADOS group by tarea;`</pre>
 </div>
-<div created="20141201151411770" creator="cristian" modified="20141203192104970" modifier="cristian" title="APACHE">
+<div created="20141201151411770" creator="cristian" modified="20141204162537233" modifier="cristian" title="APACHE" type="c">
 <pre>!Realiza
 #Cambia el mensaje de bienvenida de la página por defecto del Apache. Sustituye el //It works!// por la primera tonteria que se te ocurra. 
 `Para modificar la pagina inicial del apache tenemos que cambiar el archivo iindex.html que lo encontramos en:`
@@ -5672,9 +5672,16 @@ Junto a estas agrupaciones se utilizan un conjunto de funciones de agrupamiento.
 
 #Busca información: ¿que es apche2ctl? ¿Para qué sirve? Documéntalo para usos futuros... seguro que lo necesitarás.
 
-``
+`Es un comando que permite administrar las fucniones del demonio de aprache2, en este caso httpd daemon`
 
-#Cambia el puerto donde está escuchando apache al 2099. ¿Cómo podemos comprobar que está funcionado el servidor?</pre>
+#Cambia el puerto donde está escuchando apache al 2099. ¿Cómo podemos comprobar que está funcionado el servidor?
+
+`tenemos que editar los 2 archivos siguientes:`
+
+`/etc/apache2/ports.conf`
+`/etc/apache2/site-enable/000-default`
+
+`En estos 2 archivos hay que modificar el puerto por el puerto que queramos`</pre>
 </div>
 <div created="20141014233117233" creator="cristian" modified="20141014233124941" modifier="cristian" title="Apuntes">
 <pre>''RAID''
@@ -6725,7 +6732,7 @@ Copilar con math.h gcc programa.c -lm -o programa
 <pre>[[UF3-Assegurament de la informació]]&lt;br&gt;
 [[MYSQLDUMP]]</pre>
 </div>
-<div created="20141119191117617" creator="cristian" modified="20141203192432039" modifier="cristian" title="MYSQLDUMP">
+<div created="20141119191117617" creator="cristian" modified="20141210173605168" modifier="cristian" title="MYSQLDUMP">
 <pre>!!Actividad_Mysql_1
 *Crea una base de datos. Llámala 'copias'. Añádele un par de tablas ~MySam. Inserta algunos datos.
 `SCRIPT`&lt;br&gt;
@@ -6754,7 +6761,7 @@ INSERT INTO COPIAS1 VALUES (DEFAULT, 'Crstian');
 `&lt;br&gt;
 ` Ahora restauramos el ultimo log`&lt;br&gt;
 `
-mysqlbinlog --stop-position=317 | mysql -u root -paustria
+mysqlbinlog --stop-position=317 /var/log/mysql/mysql.bin.log.0000001 | mysql -u root -paustria COPIAS
 `
 
 !!Actividad_Mysql_2
@@ -6787,19 +6794,37 @@ Escribe un script de shell que realice una copia de la base de datos y la envíe
 
 ` El script seria el siguiente: `
 
-`#!/bin/sh
-mysqldump -u usuariomysql -pcontraseñamysql BASE_DATOS &gt; NOMBRE_FICHERO.sql
-USER='usuarioftp'
-PASSWD='passwordftp'
-HOST='IP_HOST'
+`#!/bin/bash
+
+if test $# -ne 0
+then
+	echo &quot;Forma incorrecta de llamar al archivo&quot;;
+	echo &quot;Uso: $0&quot;;
+	exit 1;
+fi
+
+rm -rf backup3.sql
+
+mysqldump -u root -paustria --single-transaction --flush-logs --master-data=2 --all-databases &gt; backup3.sql
+
+HOST='192.168.0.102'
+USER='hector'
+PASSWD='hector'
+FILE='backup3.sql'
+
+
 ftp -n $HOST &lt;&lt;END_SCRIPT
-quote user $USER 
-quote passwd $PASSWD
-cd Directorio_BACKUP
-put NOMBRE_FICHERO
+quote USER $USER
+quote PASS $PASSWD
+cd hola
+put $FILE
 quit
-END_SCRIPT`
-`</pre>
+END_SCRIPT
+exit 0`
+
+Script Optenido de:
+
+http://hheectoor.github.io/asixtiddly/</pre>
 </div>
 <div created="20141014231314856" creator="cristian" modified="20141014231332684" modifier="cristian" tags="1ºASIX marcas" title="PHP">
 <pre>Amb aquest PHP podrem Fer consultes i mostrarles amb un navegador sempre les extensions serán *.php
